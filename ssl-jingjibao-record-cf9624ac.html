@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>竞技宝 · 站点介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #fde8cd 0%, #f9d7b0 50%, #f3c49b 100%);
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.2rem;
+            line-height: 1.6;
+            color: #2e241f;
+        }
+
+        .page-card {
+            max-width: 960px;
+            width: 100%;
+            background: #fffaf5;
+            border-radius: 40px 40px 32px 32px;
+            box-shadow: 0 18px 32px -12px rgba(112, 66, 30, 0.25), 0 6px 16px rgba(0,0,0,0.03);
+            padding: 2.8rem 2.4rem;
+            transition: box-shadow 0.2s;
+        }
+
+        @media (max-width: 600px) {
+            .page-card {
+                padding: 2rem 1.5rem;
+                border-radius: 28px;
+            }
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 2.6rem;
+            border-bottom: 1px solid #ecd9c5;
+            padding-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 550;
+            letter-spacing: -0.01em;
+            color: #4f2e1c;
+            margin-bottom: 0.4rem;
+        }
+
+        .hero .sub {
+            font-size: 1.15rem;
+            color: #6e5442;
+            margin-top: 0.2rem;
+            font-weight: 380;
+            border-top: 1px solid #f0dfcf;
+            display: inline-block;
+            padding-top: 0.5rem;
+        }
+
+        .intro-block {
+            background: #fcf3ea;
+            border-radius: 28px;
+            padding: 1.8rem 2rem;
+            margin: 2rem 0;
+            font-size: 1.05rem;
+        }
+
+        .intro-block p {
+            margin-bottom: 1rem;
+        }
+
+        .intro-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        .intro-block a {
+            font-weight: 520;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2.2rem 0;
+        }
+
+        .feature-item {
+            background: #fffcf8;
+            border: 1px solid #efe0d3;
+            border-radius: 24px;
+            padding: 1.6rem 1.2rem;
+            transition: background 0.2s, border 0.2s;
+        }
+
+        .feature-item:hover {
+            background: #f9ede2;
+            border-color: #dbbca5;
+        }
+
+        .feature-item h3 {
+            font-size: 1.2rem;
+            font-weight: 520;
+            color: #3d2b1f;
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .feature-item p {
+            font-size: 0.96rem;
+            color: #4c3b30;
+        }
+
+        .highlight-link {
+            color: #a35836;
+            text-decoration: none;
+            border-bottom: 1px solid #dbb29b;
+            font-weight: 450;
+            transition: color 0.15s, border-color 0.15s;
+        }
+
+        .highlight-link:hover {
+            color: #7e4027;
+            border-bottom-color: #7e4027;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 460;
+            margin: 2rem 0 0.8rem 0;
+            color: #3e2a1d;
+            border-left: 5px solid #c79776;
+            padding-left: 0.8rem;
+        }
+
+        .faq-summary {
+            background: #fffaf2;
+            border-radius: 24px;
+            padding: 1.4rem 1.8rem;
+            margin: 2rem 0 1.2rem 0;
+            border: 1px solid #ebd8c6;
+        }
+
+        .faq-item {
+            margin-bottom: 0.9rem;
+        }
+
+        .faq-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .faq-q {
+            font-weight: 520;
+            color: #3d2b1f;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .faq-a {
+            color: #564438;
+            font-size: 0.95rem;
+            padding-left: 0.6rem;
+            border-left: 2px solid #d9bca7;
+            padding-left: 0.75rem;
+        }
+
+        .footer-note {
+            margin-top: 2.8rem;
+            padding-top: 1.4rem;
+            border-top: 1px solid #e2cebc;
+            font-size: 0.9rem;
+            color: #5a4a3d;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            align-items: center;
+        }
+
+        .footer-note .small-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.6rem 1.2rem;
+            list-style: none;
+            font-size: 0.88rem;
+        }
+
+        .footer-note a {
+            color: #7a5a44;
+            text-decoration: none;
+            border-bottom: 1px dotted #cfb6a2;
+        }
+
+        .footer-note a:hover {
+            color: #3f2b1e;
+            border-bottom: 1px solid #7a5a44;
+        }
+
+        .emoji-mild {
+            font-size: 0.9em;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+<div class="page-card">
+    <div class="hero">
+        <h1>竞技宝</h1>
+        <div class="sub">一份平实而清晰的站点介绍</div>
+    </div>
+
+    <div class="intro-block">
+        <p>
+            <a href="https://ssl-jingjibao.com" class="highlight-link">竞技宝</a>
+            是一个围绕信息聚合与基础工具思路搭建的站点。设计上不追求繁杂，而是希望让访客快速定位自己需要的功能或内容。自上线以来，团队持续对页面结构、响应速度以及信息分类做调整，目的是让不同使用习惯的人都能获得相对顺畅的浏览体验。
+        </p>
+        <p>
+            站点的内容方向偏向实用与参考，没有过度包装或情绪化表达。如果你恰好需要一类轻量、直接的信息入口，或许会觉得这里比较顺手。当然，任何站点都有自身的定位与边界，我们也在逐步完善中。
+        </p>
+    </div>
+
+    <div class="feature-grid">
+        <div class="feature-item">
+            <h3>· 简洁导航</h3>
+            <p>分类清晰，减少无关干扰。从首页到子页面保持一致的视觉层次，不堆砌元素。</p>
+        </div>
+        <div class="feature-item">
+            <h3>· 适度响应</h3>
+            <p>无论使用手机、平板还是桌面浏览器，页面均按比例适配，阅读与操作都不局促。</p>
+        </div>
+        <div class="feature-item">
+            <h3>· 透明说明</h3>
+            <p>站点不隐藏联系方式与基本运营信息，有明确指向的反馈渠道，方便使用者沟通。</p>
+        </div>
+        <div class="feature-item">
+            <h3>· 持续迭代</h3>
+            <p>后台根据用户实际浏览数据与常见问题，定期优化内容排列与交互细节，而非一次性设计。</p>
+        </div>
+    </div>
+
+    <div class="section-title">使用场景 · 一点参考</div>
+    <p style="margin-bottom:1.2rem;">
+        如果你正在寻找一个结构稳定、没有冗余弹窗或强制跳转的站点，<a href="https://ssl-jingjibao.com" class="highlight-link">竞技宝</a> 或许可以纳入你的浏览列表。它的页面加载速度尚可，主要分类包含资讯摘要、工具链接以及常见问题索引。无论是日常快速查阅，还是作为备用信息源，都算得上轻量而直接。
+    </p>
+    <p style="margin-bottom:0.2rem;">
+        另外，站点对移动端做了专门适配，菜单折叠、按钮大小、间距都经过实际测试。如果你常在通勤或碎片时间浏览，体验会比一般桌面缩放的页面舒服一些。
+    </p>
+
+    <div class="section-title">常见疑问 · 简短摘要</div>
+    <div class="faq-summary">
+        <div class="faq-item">
+            <span class="faq-q">Q：页面内容多久更新一次？</span>
+            <div class="faq-a">主要信息区块随运营节奏更新，工具与导航部分保持相对稳定，重大调整会通过站内通知说明。</div>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">Q：站点是否收集个人信息？</span>
+            <div class="faq-a">仅收集基础的访问统计（如页面浏览量、设备类型），不涉及隐私敏感字段，详细条款可查阅页面底部的说明链接。</div>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">Q：遇到显示异常或链接失效怎么办？</span>
+            <div class="faq-a">可通过站点内提供的反馈入口描述问题，通常在工作时间内得到回复。也欢迎直接发送邮件至页面所留的邮箱。</div>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        <div>© 竞技宝 · 以透明与直接为出发点</div>
+        <ul class="small-list">
+            <li><a href="#">关于本站</a></li>
+            <li><a href="#">使用指引</a></li>
+            <li><a href="#">隐私简述</a></li>
+            <li><a href="#">联系方式</a></li>
+        </ul>
+        <div style="font-size:0.82rem; opacity:0.7;">
+            <a href="https://ssl-jingjibao.com" style="border-bottom:1px solid #c9b09b;">竞技宝</a> · 页面内容仅供参考，不构成任何承诺
+        </div>
+    </div>
+</div>
+</body>
+</html>
