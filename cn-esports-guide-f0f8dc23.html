@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>竞技宝 · 导航页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background-color: #f2f4f6;
+            color: #1e2229;
+            line-height: 1.7;
+            padding: 0 20px 40px;
+        }
+
+        .page-wrap {
+            max-width: 1120px;
+            margin: 0 auto;
+            background-color: transparent;
+        }
+
+        /* 顶部导航 */
+        .top-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 0 18px;
+            border-bottom: 1px solid #e1e5ea;
+            background-color: transparent;
+        }
+
+        .nav-brand {
+            font-weight: 600;
+            font-size: 1.2rem;
+            letter-spacing: 0.5px;
+            color: #1e2229;
+        }
+
+        .nav-link-group {
+            display: flex;
+            gap: 32px;
+            font-size: 0.95rem;
+        }
+
+        .nav-link-group a {
+            text-decoration: none;
+            color: #3e4a58;
+            transition: color 0.2s;
+        }
+
+        .nav-link-group a:hover {
+            color: #0a66c2;
+        }
+
+        /* hero 精简区 */
+        .hero-mini {
+            padding: 42px 0 28px;
+            text-align: center;
+        }
+
+        .hero-mini h1 {
+            font-size: 1.9rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-mini .sub {
+            margin-top: 10px;
+            font-size: 1.05rem;
+            color: #4d5a69;
+            max-width: 680px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-mini .sub a {
+            color: #0a66c2;
+            text-decoration: none;
+        }
+
+        .hero-mini .sub a:hover {
+            text-decoration: underline;
+        }
+
+        /* 核心介绍卡 */
+        .intro-card {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 36px 38px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.02), 0 1px 3px rgba(0,0,0,0.04);
+            border: 1px solid #e6eaef;
+            margin: 20px 0 32px;
+        }
+
+        .intro-card h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 18px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eef2f6;
+        }
+
+        .intro-card p {
+            font-size: 0.98rem;
+            color: #2f3a48;
+            margin-bottom: 14px;
+        }
+
+        .intro-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .intro-card strong {
+            font-weight: 600;
+            color: #0f1e2e;
+        }
+
+        /* 三个场景模块 */
+        .scenes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin: 30px 0 40px;
+        }
+
+        .scene-card {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 28px 22px 24px;
+            border: 1px solid #e6eaef;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.01), 0 1px 3px rgba(0,0,0,0.03);
+            transition: box-shadow 0.15s;
+        }
+
+        .scene-card:hover {
+            box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+        }
+
+        .scene-card h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+            letter-spacing: 0.3px;
+        }
+
+        .scene-card p {
+            font-size: 0.95rem;
+            color: #374552;
+            margin-bottom: 14px;
+        }
+
+        .scene-card .tag {
+            display: inline-block;
+            background: #eef2f6;
+            padding: 2px 12px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            color: #3f5062;
+            letter-spacing: 0.2px;
+        }
+
+        /* 常见说明 (FAQ 摘要) */
+        .faq-section {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 30px 36px 24px;
+            border: 1px solid #e6eaef;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.01);
+            margin: 16px 0 40px;
+        }
+
+        .faq-section h2 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 14px;
+            padding-bottom: 6px;
+        }
+
+        .faq-item {
+            padding: 12px 0;
+            border-bottom: 1px solid #edf1f5;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-item .q {
+            font-weight: 500;
+            color: #1e2a38;
+            margin-bottom: 4px;
+        }
+
+        .faq-item .a {
+            font-size: 0.93rem;
+            color: #4c5c6e;
+            line-height: 1.6;
+        }
+
+        .faq-item .a a {
+            color: #0a66c2;
+            text-decoration: none;
+        }
+
+        .faq-item .a a:hover {
+            text-decoration: underline;
+        }
+
+        /* 页脚 */
+        .page-footer {
+            margin-top: 20px;
+            padding: 18px 0 12px;
+            text-align: center;
+            font-size: 0.88rem;
+            color: #6b7b8c;
+            border-top: 1px solid #e1e5ea;
+        }
+
+        .page-footer a {
+            color: #3e4a58;
+            text-decoration: none;
+        }
+
+        /* 响应式 */
+        @media (max-width: 800px) {
+            .scenes-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .intro-card {
+                padding: 28px 22px;
+            }
+            .faq-section {
+                padding: 24px 20px;
+            }
+        }
+
+        @media (max-width: 540px) {
+            .scenes-grid {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+            .top-nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            .nav-link-group {
+                gap: 20px;
+                flex-wrap: wrap;
+            }
+            .hero-mini h1 {
+                font-size: 1.5rem;
+            }
+            body {
+                padding: 0 14px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+
+    <!-- 顶部导航 -->
+    <nav class="top-nav">
+        <span class="nav-brand">竞技宝·导航</span>
+        <div class="nav-link-group">
+            <a href="#intro">简介</a>
+            <a href="#scenes">场景</a>
+            <a href="#faq">说明</a>
+        </div>
+    </nav>
+
+    <!-- hero 精简区 -->
+    <div class="hero-mini">
+        <h1>稳定入口与页面说明</h1>
+        <div class="sub">
+            从<a href="https://cn-esports-jingjibao.com">竞技宝</a>出发，构建清晰、可信的服务信息路径。
+        </div>
+    </div>
+
+    <!-- 核心介绍 卡片 -->
+    <div class="intro-card" id="intro">
+        <h2>关于竞技宝 · 定位与边界</h2>
+        <p>
+            <strong>竞技宝</strong>是一个面向电子竞技与游戏资讯的综合信息站点，提供赛事动态、项目资料及基础数据索引。
+            页面以轻量导航方式组织内容，帮助访问者快速定位感兴趣的信息模块。
+        </p>
+        <p>
+            本站点不涉及任何形式的博彩、投注或金融类服务，所有描述均限于资讯与信息指引范畴。
+            引用数据均来自公开可查来源，不提供虚假或诱导性陈述。如需了解完整服务，可直接访问
+            <a href="https://cn-esports-jingjibao.com">竞技宝</a>。
+        </p>
+        <p>
+            以下三个场景模块分别对应常见的访问意图：赛事速览、项目基础、站内指引。
+            每个模块均附有简要说明，以便快速评估是否与自身需求匹配。
+        </p>
+    </div>
+
+    <!-- 三个场景模块 -->
+    <div class="scenes-grid" id="scenes">
+        <div class="scene-card">
+            <h3>赛事速览</h3>
+            <p>覆盖主流电竞项目的最新赛程、对阵与实时比分摘要。数据更新周期为分钟级，适合需要快速了解赛事进程的使用者。</p>
+            <span class="tag">LOL · Dota2 · CS2</span>
+        </div>
+        <div class="scene-card">
+            <h3>项目基础</h3>
+            <p>提供战队、选手及赛事体系的基础档案，包含历史成绩与版本变动简记。便于赛前研究或回顾分析。</p>
+            <span class="tag">档案 · 数据 · 变动</span>
+        </div>
+        <div class="scene-card">
+            <h3>站内指引</h3>
+            <p>针对首次接触<a href="https://cn-esports-jingjibao.com">竞技宝</a>的用户，梳理主要板块功能与常见操作路径，降低信息获取门槛。</p>
+            <span class="tag">导航 · 说明 · 效率</span>
+        </div>
+    </div>
+
+    <!-- 常见说明 (FAQ 摘要) -->
+    <div class="faq-section" id="faq">
+        <h2>常见说明 · 摘要</h2>
+
+        <div class="faq-item">
+            <div class="q">Q1: 竞技宝主要提供哪些类型的信息？</div>
+            <div class="a">
+                以电子竞技赛事资讯、战队数据、赛程提醒及基础资料为主，属于综合信息展示站点。
+                具体范围可参考站内分类或直接访问<a href="https://cn-esports-jingjibao.com">竞技宝</a>了解。
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="q">Q2: 页面内的链接都指向哪些资源？</div>
+            <div class="a">
+                所有链接均指向竞技宝官方内容或站内相关模块，不包含第三方商业或推广链接。
+                导航设计以缩短访问路径为目标，减少不必要的跳转。
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="q">Q3: 是否提供个人账户或数据订阅功能？</div>
+            <div class="a">
+                当前页面为介绍与导航用途，不涉及账户系统。竞技宝主站可能提供自定义功能，详情以主站实际页面为准。
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="q">Q4: 信息更新频率与可靠性如何？</div>
+            <div class="a">
+                赛程与比分类数据为动态更新，基础档案按赛事周期维护。所有信息均标注来源与时间戳，可追溯核验。
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="page-footer">
+        <span>基于公开信息整理 · 内容仅供参考</span>
+        <span style="margin: 0 10px;">·</span>
+        <a href="https://cn-esports-jingjibao.com">竞技宝</a>
+    </footer>
+
+</div>
+</body>
+</html>
